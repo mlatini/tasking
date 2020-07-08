@@ -1,0 +1,70 @@
+
+/* .color-pallete { 
+   https://colorhunt.co/palette/180665 
+   #F6F578
+   #F6D743
+   #649D66 
+   #06623B 
+ */
+
+.app {
+  
+}
+
+body {
+  background-color: white;
+  margin: 0;
+}
+
+.top-nav {
+  border: thin solid;
+  background-color: #2B2D2F;
+  margin-bottom: .1em;
+  position: relative;
+}
+
+.top-nav ul {
+  list-style: none;
+}
+
+.top-nav li {
+  display: inline-block;
+}
+
+.top-nav a {
+  padding: .5em;
+  margin: .2em;
+  border: thin solid;
+  background-color: #06623B;
+  color: white;
+  text-decoration: none;
+}
+
+.top-nav a:hover {
+  background-color: #649D66;
+}
+
+.top-nav-left-image {
+  color: #F6F578;
+  font-size: 4em;
+  display: inline-block;
+}
+
+.top-nav-left-app-name {
+  color: white;
+  display: inline-block;
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  left: 70px;
+  font-size: 2em;
+}
+
+.top-nav-links {
+  display: inline-block;
+  position: absolute;
+  top: 46%;
+  left: 240px;
+  transform: translateY(-50%);
+
+}
