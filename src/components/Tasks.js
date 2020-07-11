@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Task from './Task';
+import emptyPic from '../empty-pic.png';
 import moment from 'moment';
 import { BsArrowRepeat, BsPlusSquare } from 'react-icons/bs';
 
@@ -65,23 +66,6 @@ const Tasks = () => {
   if (notStartedTasks.length >= 1) {
     return (
       <div>
-        {/* <div classNameName="person-menu"> */}
-        {/*   <ul> */}
-        {/*     { */}
-        {/*       people.map((person) => ( */}
-        {/*         <li> */}
-        {/*           <img */}
-        {/*             src={emptyPic} */}
-        {/*             alt={person.name} */}
-        {/*             classNameName="profile-pic-lg" */}
-        {/*           > */}
-        {/*           </img> */}
-        {/*           {person.name} */}
-        {/*         </li> */}
-        {/*       )) */}
-        {/*     } */}
-        {/*   </ul> */}
-        {/* </div> */}
         <div classNameName="filters">
           <label htmlFor="show-completed-check">Show Completed Tasks</label>
           {
@@ -109,109 +93,134 @@ const Tasks = () => {
           }
         </div>
         <div className="content">
-          <div className="five-column">
-            <div className="column-header not-started-header">
-              <label>Not Started</label>
+          {/* <div classNameName="person-menu"> */}
+          {/*   <ul> */}
+          {/*     { */}
+          {/*       people.map((person) => ( */}
+          {/*         <li> */}
+          {/*           <img */}
+          {/*             src={emptyPic} */}
+          {/*             alt={person.name} */}
+          {/*             classNameName="profile-pic-lg" */}
+          {/*           > */}
+          {/*           </img> */}
+          {/*           {person.name} */}
+          {/*         </li> */}
+          {/*       )) */}
+          {/*     } */}
+          {/*   </ul> */}
+          {/* </div> */}
+          {/* <div className="five-column"> */}
+          <div></div>
+          <div className="tasks">
+            <div>
+              <div className="column-header not-started-header">
+                <label>Not Started</label>
+              </div>
+              {
+                notStartedTasks.length >= 1 ? (
+                  notStartedTasks.map((task) => (
+                    <Task 
+                      task={task}
+                    />
+                  ))
+                ) : (
+                  <div></div>
+                )
+              }
+              <div className="add-task-button-div">
+                <a className="add-task-button" href="/add-task">
+                  <BsPlusSquare />
+                </a>
+              </div>
             </div>
-            {
-              notStartedTasks.length >= 1 ? (
-                notStartedTasks.map((task) => (
-                  <Task 
-                    task={task}
-                  />
-                ))
-              ) : (
-                <div></div>
-              )
-            }
-            <div className="add-task-button-div">
-              <a className="add-task-button" href="/add-task">
-                <BsPlusSquare />
-              </a>
+            {/* <div className="five-column"> */}
+            <div>
+              <div className="column-header in-progress-header">
+                <label>In Progress</label>
+              </div>
+              {
+                inProgressTasks.length >= 1 ? (
+                  inProgressTasks.map((task) => (
+                    <Task 
+                      task={task}
+                    />
+                  ))
+                ) : (
+                  <div></div>
+                )
+              }
+              <div className="add-task-button-div">
+                <a className="add-task-button" href="/add-task">
+                  <BsPlusSquare />
+                </a>
+              </div>
             </div>
-          </div>
-          <div className="five-column">
-            <div className="column-header in-progress-header">
-              <label>In Progress</label>
+            {/* <div className="five-column"> */}
+            <div>
+              <div className="column-header paused-header">
+                <label>Paused</label>
+              </div>
+              {
+                pausedTasks.length >= 1 ? (
+                  pausedTasks.map((task) => (
+                    <Task 
+                      task={task}
+                    />
+                  ))
+                ) : (
+                  <div></div>
+                )
+              }
+              <div className="add-task-button-div">
+                <a className="add-task-button" href="/add-task">
+                  <BsPlusSquare />
+                </a>
+              </div>
             </div>
-            {
-              inProgressTasks.length >= 1 ? (
-                inProgressTasks.map((task) => (
-                  <Task 
-                    task={task}
-                  />
-                ))
-              ) : (
-                <div></div>
-              )
-            }
-            <div className="add-task-button-div">
-              <a className="add-task-button" href="/add-task">
-                <BsPlusSquare />
-              </a>
+            {/* <div className="five-column"> */}
+            <div>
+              <div className="column-header completed-header">
+                <label>Completed(Last 72 hours)</label>
+              </div>
+              {
+                completedTasks.length >= 1 ? (
+                  completedTasks.map((task) => (
+                    <Task 
+                      task={task}
+                    />
+                  ))
+                ) : (
+                  <div></div>
+                )
+              }
+              <div className="add-task-button-div">
+                <a className="add-task-button" href="/add-task">
+                  <BsPlusSquare />
+                </a>
+              </div>
             </div>
-          </div>
-          <div className="five-column">
-            <div className="column-header paused-header">
-              <label>Paused</label>
-            </div>
-            {
-              pausedTasks.length >= 1 ? (
-                pausedTasks.map((task) => (
-                  <Task 
-                    task={task}
-                  />
-                ))
-              ) : (
-                <div></div>
-              )
-            }
-            <div className="add-task-button-div">
-              <a className="add-task-button" href="/add-task">
-                <BsPlusSquare />
-              </a>
-            </div>
-          </div>
-          <div className="five-column">
-            <div className="column-header completed-header">
-              <label>Completed(Last 72 hours)</label>
-            </div>
-            {
-              completedTasks.length >= 1 ? (
-                completedTasks.map((task) => (
-                  <Task 
-                    task={task}
-                  />
-                ))
-              ) : (
-                <div></div>
-              )
-            }
-            <div className="add-task-button-div">
-              <a className="add-task-button" href="/add-task">
-                <BsPlusSquare />
-              </a>
-            </div>
-          </div>
-          <div className="five-column">
-            <div className="column-header deleted-header">
-              <label>Deleted</label>
-            </div>
-            {
-              deletedTasks.length >= 1 ? (
-                deletedTasks.map((task) => (
-                  <Task 
-                    task={task}
-                  />
-                ))
-              ) : (
-                <div></div>
-              )
-            }
-            <div className="add-task-button-div">
-              <a className="add-task-button" href="/add-task">
-                <BsPlusSquare />
-              </a>
+            {/* <div className="five-column"> */}
+            <div>
+              <div className="column-header deleted-header">
+                <label>Deleted</label>
+              </div>
+              {
+                deletedTasks.length >= 1 ? (
+                  deletedTasks.map((task) => (
+                    <Task 
+                      task={task}
+                    />
+                  ))
+                ) : (
+                  <div></div>
+                )
+              }
+              <div className="add-task-button-div">
+                <a className="add-task-button" href="/add-task">
+                  <BsPlusSquare />
+                </a>
+              </div>
             </div>
           </div>
         </div>
