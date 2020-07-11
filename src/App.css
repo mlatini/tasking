@@ -86,7 +86,7 @@ body {
 }
 
 .person-menu {
-  top: 74px;
+  top: 32px;
   left: 0;
   width: 78px;
   height: 100%;
@@ -116,7 +116,6 @@ body {
   overflow: hidden;
   text-align: center;
 }
-
 .filters { 
   z-index: 0;
   position: fixed;
@@ -129,27 +128,33 @@ body {
 }
 
 .content {
-  padding-left: 75px;
-  margin-top: 52px;
+  padding-left: .25em;
+  padding-right: .25em;
+  margin-top: .25em;
 }
 
-.three-column {
-  width: 33.33%;
+.tasks {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }
 
-.four-column {
-  width: 25%;
-}
+/* .three-column { */
+/*   width: 33.33%; */
+/* } */
 
-.five-column {
-  width: 20%;
-}
+/* .four-column { */
+/*   width: 25%; */
+/* } */
 
-.three-column, .four-column,
-  .five-column {
-    float: left;
-    vertical-align: top;
-  }
+/* .five-column { */
+/*   width: 20%; */
+/* } */
+
+/* .three-column, .four-column, */
+/*   .five-column { */
+/*     float: left; */
+/*     vertical-align: top; */
+/*   } */
 
 .column-header {
   text-align: center;
