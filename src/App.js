@@ -1,5 +1,5 @@
-import React from 'react';
-import Schedules from './components/Schedules';
+import React, { useState, useEffect } from 'react';
+import Tasks from './components/Tasks';
 import AddTask from './components/AddTask'
 import EditCategories from './components/EditCategories';
 import Admin from './components/Admin';
@@ -7,7 +7,7 @@ import './App.css';
 import { Switch, Route, Link } from 'react-router-dom'
 import { GrTasks } from 'react-icons/gr';
 
-function App() {
+function App () {
   return (
     <Switch>
       <div className="app">
@@ -23,7 +23,7 @@ function App() {
             </div>
             <div className="top-nav-links">
               <ul>
-                <li><Link to='/schedules'>Schedules</Link></li>
+                <li><Link to='/tasks'>Tasks</Link></li>
                 <li><Link to='/add-task'>Add Task</Link></li>
                 <li><Link to='/edit-categories'>Edit Categories</Link></li>
                 <li><Link to='/admin'>Admin</Link></li>
@@ -31,8 +31,9 @@ function App() {
             </div>
           </nav>
         </header>
-        <Route path='/schedules'>
-          <Schedules />
+        <Route path='/tasks'>
+          <Tasks
+          />
         </Route>
         <Route path='/add-task'>
           <AddTask />
