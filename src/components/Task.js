@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import moment from 'moment';
 import emptyPic from '../empty-pic.png';
+import TaskItemHeader from './TaskItemHeader';
+import TaskItemIcons from './TaskItemIcons';
 import { FaPlay, 
   FaPause,
   FaStop,
@@ -19,32 +21,31 @@ import { FcExpired } from 'react-icons/fc';
 const Task = ({ task }) => {
   return (
     <div className="task-item">
-      <div className="undo-label-div" id="{{id}}">
-          {/* placeholder div for the undo label */}
-        </div>
-        <div className="task-item-header">
-          <div className="task-item-name">
-            {
-              moment(task.dueDate).isBefore() ? (
-                <label className="overdue-icon">
-                  <FcExpired />
+      <div className="task-item-body">
+        {
+          task.status.completed || task.status.deleted ? (
+            <Fragment>
+              <div className="undo-label-div" id="{{id}}">
+                <label>
+                  <a 
+                    href="#" 
+                    className="undo-completed-task"
+                  >
+                    {task.status.completed ? 'Undo completed task' : 'Undo deleted task'}
+                  </a>
                 </label>
-              ) : (
-                <label></label>
-              )
-            }
-            <label>{task.title}</label>
-          </div>
-          <div className="task-item-pic"> 
-            <img 
-              src={emptyPic} 
-              alt={task._owner.name} 
-              className="profile-pic-sm"
-            />
-          </div>
-        </div>
-        <div className="task-item-body">
-          <div className="task-item-top-line">
+              </div>
+                <div className="task-item-name">
+                  <label>{task.title}</label>
+                </div>
+            </Fragment>
+            ) : (
+            <TaskItemHeader
+              {...task}
+              />
+          )
+        }
+        <div className="task-item-top-line">
           <div>
             {
               // Check if it's overdue
@@ -94,39 +95,15 @@ const Task = ({ task }) => {
               {`${task._owner.firstName} ${task._owner.lastName}`}
             </label>
           </div>
-          <div className="task-item-icons">
-            <div className="status-buttons">
-              <label className="start-btn start">
-                <FaPlay />
-                {/* <i className="fa fa-play start"></i> */}
-              </label>
-              <label className="pause-btn pause">
-                <FaPause />
-                 {/* <i className="fa fa-pause pause"></i> */}
-              </label>
-              <label className="complete-btn complete">
-                <FaCheck />
-                 {/* <i className="fa fa-check complete"></i> */}
-              </label>
-              <label className="skip-btn skip">
-                <FaForward />
-                {/* <i className="fa fa-step-forward skip"></i> */}
-              </label>
-            </div>
-            <div className="edit-buttons">
-              <label className="delete-btn">
-                <FaTrash />
-                {/* <i className="fa fa-trash-o delete-task-icon"></i> */}
-              </label>
-              <label 
-                className="edit-btn">
-                <a class="edit-btn" href={`/task/edit${task._id}`}>
-                  <FaPencilAlt />
-                  {/* <i className="fa fa-pencil"></i> */}
-                </a>
-              </label>
-            </div>
-          </div>
+            {
+              !task.status.deleted && !task.status.completed ? (
+                <TaskItemIcons 
+                  {...task}
+                />
+                ) : (
+                  <div></div>
+                )
+            }
       </div>
     </div>
   )
