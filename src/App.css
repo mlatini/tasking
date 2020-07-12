@@ -170,28 +170,28 @@ body {
 }
 
 .not-started-header {
-  /* background-color: #252525; */
-  background-color: #649D66;
-  color: white;
+  background-color: #252525;
+  /* background-color: #649D66; */
+  /* color: white; */
 }
 .in-progress-header {
-  /* background-color: #252525; */
-  background-color: #5f85be;
+  background-color: #252525;
+  /* background-color: #5f85be; */
 }
 
 .paused-header {
-  /* background-color: #252525; */
-  background-color: #9c0202;
+  background-color: #252525;
+  /* background-color: #9c0202; */
 }
 
 .completed-header {
-  /* background-color: #252525; */
-  background-color: #00c32b;
+  background-color: #252525;
+  /* background-color: #00c32b; */
 }
 
 .deleted-header {
-  /* background-color: #252525; */
-  background-color: red;
+  background-color: #252525;
+  /* background-color: red; */
 }
 
 .task-item {
