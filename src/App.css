@@ -218,6 +218,10 @@ body {
   font-size: 14px;
 }
 
+.undo-completed-task {
+  text-decoration: none;
+}
+
 .task-item-header {
   padding-left: 5px;
   padding-top: 2.5px;

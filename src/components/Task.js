@@ -21,13 +21,30 @@ import { FcExpired } from 'react-icons/fc';
 const Task = ({ task }) => {
   return (
     <div className="task-item">
-      <div className="undo-label-div" id="{{id}}">
-          {/* placeholder div for the undo label */}
-      </div>
-      <TaskItemHeader
-        {...task}
-        />
       <div className="task-item-body">
+        {
+          task.status.completed || task.status.deleted ? (
+            <Fragment>
+              <div className="undo-label-div" id="{{id}}">
+                <label>
+                  <a 
+                    href="#" 
+                    className="undo-completed-task"
+                  >
+                    {task.status.completed ? 'Undo completed task' : 'Undo deleted task'}
+                  </a>
+                </label>
+              </div>
+                <div className="task-item-name">
+                  <label>{task.title}</label>
+                </div>
+            </Fragment>
+            ) : (
+            <TaskItemHeader
+              {...task}
+              />
+          )
+        }
         <div className="task-item-top-line">
           <div>
             {
